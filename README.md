@@ -229,3 +229,23 @@ gfortran program.f90 -o program
 
 for gfortran path run `which gfortran`
 configure codeblocks for gfortran path `Settings > Compiler > Select GNU Fortran Compiler set as default > Toolchain executables` then set path `/usr/bin` then click on `OK`
+
+**17. Install Discord**
+
+```bash
+wget https://stable.dl2.discordapp.net/apps/linux/0.0.74/discord-0.0.74.deb
+sudo dpkg -i <file_name.deb>
+discord
+```
+
+**18. Install Slack**
+
+```bash
+sudo apt update
+sudo apt install alien
+wget https://downloads.slack-edge.com/desktop-releases/linux/x64/4.41.97/slack-4.41.97-0.1.el8.x86_64.rpm
+sudo alien -d <file_name.rpm>
+sudo dpkg -i <file_name.deb>
+sudo apt-get install -f
+slack
+```
