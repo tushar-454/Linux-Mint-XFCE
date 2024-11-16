@@ -208,3 +208,24 @@ sudo dpkg -i <file_name.deb>
 
 **15. Add desktop wallpaper**
 [Download Wallpaper SNOW](https://1drv.ms/i/c/1b6b9205ab056810/ERBoBasFkmsggBuIAAAAAAABSsCn1fUlLKZYg9qEk4PE0A?e=zpJ7O4)
+
+**16. Install Codeblocks**
+
+```bash
+sudo add-apt-repository ppa:codeblocks-devs/release
+sudo apt update
+sudo apt install codeblocks
+codeblocks --version
+codeblocks
+```
+
+```bash
+sudo apt update
+sudo apt install gfortran
+gfortran --version
+sudo apt install build-essential
+gfortran program.f90 -o program
+```
+
+for gfortran path run `which gfortran`
+configure codeblocks for gfortran path `Settings > Compiler > Select GNU Fortran Compiler set as default > Toolchain executables` then set path `/usr/bin` then click on `OK`
