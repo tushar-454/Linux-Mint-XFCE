@@ -60,6 +60,8 @@ Run the following command to ensure your system is fully updated:
 sudo apt update && sudo apt upgrade -y
 ```
 
+**_📌 install updated ubuntu recommended GPU driver & reboot_**
+
 **2.Install Git and Setup**
 
 ```bash
@@ -192,3 +194,14 @@ Right click on panel then click on `Panel` then click on `Panel Preferences` the
 Under `Whisker Menu` click on `Edit Icon` then customize as you want.
 
 ![Whisker-menu-image](https://res.cloudinary.com/dcdfbratw/image/upload/v1731779872/whisker_menu_setup_ybpwpz.png)
+
+**14. Install MongodbCompass**
+Go to [MongodbCompass](https://www.mongodb.com/try/download/compass) select latest version and platform ubuntu then copy link
+
+```bash
+wget past link here
+```
+
+```bash
+sudo dpkg -i <file_name.deb>
+```
