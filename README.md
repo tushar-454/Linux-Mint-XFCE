@@ -13,6 +13,7 @@ For this guide, I'm using XFCE since it is lightweight and more performance-focu
 Once you've downloaded the ISO file, you will need to create a bootable USB drive. On Windows, you can use **Rufus**, and on Linux, **balenaEtcher** works well.
 
 ### Steps for Rufus (on Windows):
+
 1. [Download Rufus](https://rufus.ie/downloads/).
 2. Install and open Rufus.
 3. Insert your USB drive.
@@ -22,6 +23,7 @@ Once you've downloaded the ISO file, you will need to create a bootable USB driv
 7. Click "Start" to create the bootable USB drive.
 
 ### Steps for balenaEtcher (on Linux):
+
 1. Install and open [balenaEtcher](https://www.balena.io/etcher/).
 2. Select the ISO file and the USB drive.
 3. Click "Flash" to create the bootable drive.
@@ -36,6 +38,7 @@ You can try Linux Mint XFCE live before installation, and if you decide to proce
 2. **For a dual-boot setup**, select the "Something else" option to partition your drive manually. For dual-boot, you need unallocated space on your drive, which you can create using Windows' disk management tool. In this example, we allocate 70GB for Linux Mint.
 
 Partition setup:
+
 - **35GB** - ext4 - Mount point: `/` (root)
 - **30GB** - ext4 - Mount point: `/home` (for personal files)
 - **300MB** - EFI - Mount point: `/boot/efi` (for UEFI boot)
@@ -50,54 +53,72 @@ After installation, reboot the system, remove the USB drive, and boot into your 
 After installation, follow these steps to set up your system for development, especially for a MERN stack setup.
 
 ### 1. Update System
+
 Run the following command to ensure your system is fully updated:
+
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
+
 **2.Install Git and Setup**
+
 ```bash
 sudo apt install git
 git --version
 ```
+
 **3. Configure Git)**
+
 ```bash
 git config --global user.name "Your username"
 ```
+
 ```bash
 git config --global user.email "Your email"
 ```
 
 **4. For create another firefox profile**
+
 ```bash
 firefox -p
 ```
+
 **5. Generate a New SSH Key**
+
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 cat ~/.ssh/id_ed25519.pub
 ```
-***If ed25519 not supported***
+
+**_If ed25519 not supported_**
+
 ```bash
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
 ```
+
 Then You found a ssh key copy it then go to github setting under ssh keys section you add copy ssh key there and save it.
-***Test github connection***
+**_Test github connection_**
+
 ```bash
 ssh -T git@github.com
 ```
-you can see this message if success ***Hi username! You've successfully authenticated, but GitHub does not provide shell access.***
-***If you clone your github repo using HTTPS then replace url with SSH**
+
+you can see this message if success **_Hi username! You've successfully authenticated, but GitHub does not provide shell access._**
+**\*If you clone your github repo using HTTPS then replace url with SSH**
+
 ```bash
 git remote set-url origin git@github.com:username/repo.git
 ```
+
 Now it's work push/pull without username/password promt also new clone repo using SSH insted of HTTPS
 
 **6. Install VS Code**
+
 ```bash
 sudo apt update && sudo apt upgrade -y
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o packages.microsoft.gpg
@@ -108,6 +129,59 @@ sudo apt install code -y
 sudo apt update && sudo apt upgrade -y
 code
 ```
+
 **7. Change the default theme enable dark mode**
 `Settings > Appearance > Mint-Y-Dark-Aqua`
 `Settings > Window Manager > Mint-Y-Dark-Aqua`
+**8. Turn on VS Code setting sync by sign in with GitHub**
+
+**9. Install Node.js using (NVM)**
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+source ~/.bashrc
+nvm --version
+```
+
+**_Install nodejs lts version_**
+
+```bash
+nvm install --lts
+node --version
+npm --version
+```
+
+**_Install other version of nodejs_**
+
+```bash
+nvm install 18.20.5
+nvm use 18.20.5
+node --version
+npm --version
+```
+
+**_Install yarn_**
+
+```bash
+npm install --global yarn
+yarn --version
+```
+
+**10. Install VLC**
+
+```bash
+sudo apt install vlc
+```
+
+**11. Install custom fonts**
+[Downlaod Font](https://1drv.ms/f/c/1b6b9205ab056810/EsM7ojuV4rdBkmSpQLgl-90Bz9QlMawKwaehJ5mfrMSFqw?e=9IDNtM)
+
+```bash
+cd /usr/share/fonts/
+```
+
+open folder as root
+then move your font file here then run `systemctl reboot`
+
+**12. Setup Timezone and format**
+right click on time and date then click on `Digital Clock Settings` then set your timezone and format
