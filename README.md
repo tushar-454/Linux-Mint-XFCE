@@ -249,3 +249,101 @@ sudo dpkg -i <file_name.deb>
 sudo apt-get install -f
 slack
 ```
+
+**19. Clear unnecessary packages files folders**
+
+```bash
+sudo apt-get autoremove
+sudo apt-get clean
+```
+
+```bash
+npm cache clean --force
+```
+
+**20. Install postman**
+
+```bash
+wget https://dl.pstmn.io/download/latest/linux_64?deviceId=Suc3jbLBgDbLAMwAv6zXam
+sudo tar -xvf <file_name.tar.gz>
+sudo mv Postman /opt/
+sudo ln -s /opt/Postman/Postman /usr/bin/postman
+postman
+```
+
+**21. Install Mongodb Server Local**
+
+```bash
+wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-8.0.3.tgz
+sudo tar -zxvf <file_name.tgz>
+sudo mv <file_name> /opt/mongodb
+```
+
+```bash
+sudo mkdir -p /var/lib/mongo
+sudo chown -R mongodb:mongodb /var/lib/mongo
+sudo mkdir -p /var/log/mongodb
+sudo chown -R mongodb:mongodb /var/log/mongodb
+```
+
+```bash
+sudo nano /etc/systemd/system/mongod.service
+```
+
+```
+[Unit]
+Description=MongoDB Database Server
+Documentation=https://docs.mongodb.org/manual
+After=network.target
+
+[Service]
+ExecStart=/opt/mongodb/bin/mongod --dbpath /var/lib/mongo --logpath /var/log/mongodb/mongod.log --bind_ip_all
+User=mongodb
+Group=mongodb
+PIDFile=/var/run/mongodb/mongod.pid
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl start mongod
+sudo systemctl status mongod
+```
+
+```bash
+sudo systemctl enable mongod # to start mongodb on boot
+```
+
+**_if not running_**
+
+```bash
+sudo groupadd mongodb
+sudo useradd --no-create-home --shell /bin/false -g mongodb mongodb
+id mongodb
+```
+
+```bash
+sudo chown -R mongodb:mongodb /var/lib/mongo
+sudo chown -R mongodb:mongodb /var/log/mongodb
+```
+
+```bash
+sudo systemctl restart mongod
+sudo systemctl status mongod
+```
+
+**_mongod server start_**
+
+```bash
+sudo systemctl start mongod
+```
+
+**_mongod server stop_**
+
+```bash
+sudo systemctl stop mongod
+```
