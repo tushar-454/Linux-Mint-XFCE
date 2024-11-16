@@ -86,3 +86,19 @@ ssh-add ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
 ```
 Then You found a ssh key copy it then go to github setting under ssh keys section you add copy ssh key there and save it.
+***Test github connection***
+```bash
+ssh -T git@github.com
+```
+you can see this message if success ***Hi username! You've successfully authenticated, but GitHub does not provide shell access.***
+**6. Install VS Code**
+```bash
+sudo apt update && sudo apt upgrade -y
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o packages.microsoft.gpg
+sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
+sudo apt update
+sudo apt install code -y
+sudo apt update && sudo apt upgrade -y
+code
+```
