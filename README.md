@@ -71,3 +71,18 @@ git config --global user.email "Your email"
 ```bash
 firefox -p
 ```
+**5. Generate a New SSH Key**
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+```
+***If ed25519 not supported***
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
+```
+Then You found a ssh key copy it then go to github setting under ssh keys section you add copy ssh key there and save it.
