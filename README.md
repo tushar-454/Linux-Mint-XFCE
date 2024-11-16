@@ -186,9 +186,11 @@ open folder as root
 then move your font file here then run `systemctl reboot`
 
 **12. Setup Timezone and format**
+
 right click on time and date then click on `Digital Clock Settings` then set your timezone and format
 
 **13. Customise Panel**
+
 Right click on panel then click on `Panel` then click on `Panel Preferences` then click on `Items` then add `Separator` then add `Whisker Menu` then add `Window Buttons` then add `Workspace Switcher` then add `Notification Area` then add `PulseAudio Plugin` then add `Battery Monitor` then add `Clock` then click on `Appearance` then select `Solid color` then select `Background color` then click on `Advanced` then select `Transparent` then click on `OK` then click on `Close`
 
 Under `Whisker Menu` click on `Edit Icon` then customize as you want.
@@ -196,6 +198,7 @@ Under `Whisker Menu` click on `Edit Icon` then customize as you want.
 ![Whisker-menu-image](https://res.cloudinary.com/dcdfbratw/image/upload/v1731779872/whisker_menu_setup_ybpwpz.png)
 
 **14. Install MongodbCompass**
+
 Go to [MongodbCompass](https://www.mongodb.com/try/download/compass) select latest version and platform ubuntu then copy link
 
 ```bash
