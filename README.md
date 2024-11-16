@@ -103,3 +103,6 @@ sudo apt install code -y
 sudo apt update && sudo apt upgrade -y
 code
 ```
+**7. Change the default theme enable dark mode**
+`Settings > Appearance > Mint-Y-Dark-Aqua`
+`Settings > Window Manager > Mint-Y-Dark-Aqua`
