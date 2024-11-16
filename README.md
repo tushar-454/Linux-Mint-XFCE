@@ -91,6 +91,7 @@ Then You found a ssh key copy it then go to github setting under ssh keys sectio
 ssh -T git@github.com
 ```
 you can see this message if success ***Hi username! You've successfully authenticated, but GitHub does not provide shell access.***
+
 **6. Install VS Code**
 ```bash
 sudo apt update && sudo apt upgrade -y
