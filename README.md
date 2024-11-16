@@ -91,6 +91,11 @@ Then You found a ssh key copy it then go to github setting under ssh keys sectio
 ssh -T git@github.com
 ```
 you can see this message if success ***Hi username! You've successfully authenticated, but GitHub does not provide shell access.***
+***If you clone your github repo using HTTPS then replace url with SSH**
+```bash
+git remote set-url origin git@github.com:username/repo.git
+```
+Now it's work push/pull without username/password promt also new clone repo using SSH insted of HTTPS
 
 **6. Install VS Code**
 ```bash
