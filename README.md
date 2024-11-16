@@ -350,3 +350,46 @@ sudo systemctl start mongod
 ```bash
 sudo systemctl stop mongod
 ```
+
+**22 Password change linux user**
+
+```bash
+passwd
+sudo passwd username # change another user password
+```
+
+**22. Install Avro Phonetic for Linux**
+[ibus-avro](https://linux.omicronlab.com/)
+
+```bash
+sudo apt-get install ibus-avro
+```
+
+```bash
+ibus-setup
+```
+
+then under `input method` click on `add` then select `Bangla` then select `Avro Phonetic` then click on `Add` then click on `Close` then `reboot system`
+
+**23. Install Telegram**
+Downlaod telegram from [Telegram](https://telegram.org/dl/desktop/linux)
+
+```bash
+sudo tar -xf <file_name.tar.xz>
+```
+
+```bash
+sudo mkdir -p /opt/telegram
+sudo mv Telegram/* /opt/telegram
+sudo ln -s /opt/telegram/Telegram /usr/local/bin/telegram
+telegram
+```
+
+**24. Install Zoom**
+Donwload zoom from [Zoom](https://zoom.us/download)
+
+```bash
+sudo dpkg -i <file_name.deb>
+sudo apt --fix-broken install
+zoom
+```
