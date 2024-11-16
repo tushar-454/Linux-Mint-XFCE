@@ -53,3 +53,21 @@ After installation, follow these steps to set up your system for development, es
 Run the following command to ensure your system is fully updated:
 ```bash
 sudo apt update && sudo apt upgrade -y
+```
+**2.Install Git and Setup**
+```bash
+sudo apt install git
+git --version
+```
+**3. Configure Git)**
+```bash
+git config --global user.name "Your username"
+```
+```bash
+git config --global user.email "Your email"
+```
+
+**4. For create another firefox profile**
+```bash
+firefox -p
+```
