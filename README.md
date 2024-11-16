@@ -205,3 +205,6 @@ wget past link here
 ```bash
 sudo dpkg -i <file_name.deb>
 ```
+
+**15. Add desktop wallpaper**
+[Download Wallpaper SNOW](https://1drv.ms/i/c/1b6b9205ab056810/ERBoBasFkmsggBuIAAAAAAABSsCn1fUlLKZYg9qEk4PE0A?e=zpJ7O4)
