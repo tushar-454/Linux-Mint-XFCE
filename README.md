@@ -466,3 +466,28 @@ if font not apply on vscode terminal _you need to move font in /usr/shared/fonts
 sudo cp ~/.local/share/fonts/FiraCodeNerdFont* /usr/share/fonts/
 sudo fc-cache -fv
 ```
+
+**27. Install sublime text**
+
+Donwload sublime text from [Sublime Text](https://www.sublimetext.com/download)
+
+```bash
+sudo dpkg -i <file_name.deb>
+subl
+```
+
+**28. Hibernate system**
+
+```bash
+sudo systemctl hibernate
+```
+
+**29. Check storage using command**
+
+```bash
+df -h # check storage
+```
+
+```bash
+df -h /dev/sd* # check storage of specific drive
+```
