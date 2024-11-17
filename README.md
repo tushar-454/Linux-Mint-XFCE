@@ -403,3 +403,51 @@ sudo dpkg -i <file_name.deb>
 sudo apt --fix-broken install
 google-chrome
 ```
+
+**26. Customise Terminal**
+
+```bash
+sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
+sudo chmod +x /usr/local/bin/oh-my-posh
+```
+
+```bash
+wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraCode.zip
+unzip ~/.local/share/fonts/FiraCode.zip -d ~/.local/share/fonts
+fc-cache -fv
+```
+
+Go to the terminal preferences and change the font to the installed Nerd Font (e.g., "FiraCode Nerd Font").
+
+```bash
+nano ~/.bashrc
+```
+
+Add the following line to set an Oh My Posh theme:
+bash
+Copy code
+
+```bash
+eval "$(oh-my-posh init bash --config ~/.poshthemes/your-theme-name.omp.json)"
+
+```
+
+Create a themes directory:
+
+```bash
+mkdir ~/.poshthemes
+```
+
+```bash
+wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/.poshthemes/themes.zip
+unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
+chmod u+rw ~/.poshthemes/*.omp.json
+```
+
+apply theme
+
+```bash
+source ~/.bashrc
+```
+
+Also change font from terminal settings and `reboot`
