@@ -406,16 +406,26 @@ google-chrome
 
 **26. Customise Terminal**
 
+Install Oh My Posh
+
 ```bash
 sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
 sudo chmod +x /usr/local/bin/oh-my-posh
 ```
+
+Donwload Nerd Font
 
 ```bash
 wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraCode.zip
 unzip ~/.local/share/fonts/FiraCode.zip -d ~/.local/share/fonts
 fc-cache -fv
 ```
+
+or do it manually, [Firacode Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraCode.zip)
+
+_unzip the fle and move the font file in `/usr/share/fonts`_
+
+_path must be open with root permission_
 
 Go to the terminal preferences and change the font to the installed Nerd Font (e.g., "FiraCode Nerd Font").
 
@@ -424,8 +434,6 @@ nano ~/.bashrc
 ```
 
 Add the following line to set an Oh My Posh theme:
-bash
-Copy code
 
 ```bash
 eval "$(oh-my-posh init bash --config ~/.poshthemes/your-theme-name.omp.json)"
@@ -451,3 +459,10 @@ source ~/.bashrc
 ```
 
 Also change font from terminal settings and `reboot`
+
+if font not apply on vscode terminal _you need to move font in /usr/shared/fonts_
+
+```bash
+sudo cp ~/.local/share/fonts/FiraCodeNerdFont* /usr/share/fonts/
+sudo fc-cache -fv
+```
