@@ -393,3 +393,13 @@ sudo dpkg -i <file_name.deb>
 sudo apt --fix-broken install
 zoom
 ```
+
+**25. Chrome Browser Install**
+
+Download chrome browser from [Click here](https://www.google.com/chrome/)
+
+```bash
+sudo dpkg -i <file_name.deb>
+sudo apt --fix-broken install
+google-chrome
+```
