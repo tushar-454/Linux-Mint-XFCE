@@ -606,3 +606,111 @@ sudo apt install vainfo i965-va-driver
 sudo apt install nvidia-driver-<version>
 sudo apt install libnvenc
 ```
+
+**33. Install NoiseTorch For AI Noice Cancellation**
+
+Download software from [GitHub](https://github.com/noisetorch/NoiseTorch/releases)
+
+```bash
+tar -xzf filename.tar.gz
+or
+tar -xvzf filename.tgz
+
+```
+
+```bash
+sudo apt update
+sudo apt install pulseaudio
+```
+
+_Find file path and goto open terminal and change file ownership_
+
+```bash
+sudo chown yourusername:yourusername noisetorch
+```
+
+```bash
+chmod +x noisetorch
+./noisetorch
+```
+
+_For global noisetorch execution_
+
+```bash
+# create a folder noisetorch inside /home/username/.local/share
+# then your noisetorch file that you found when you unzip it. all files keep in .local, may be
+# you need on hidden files to see it
+# then move bin and other file move in /home/username/.local/share/noisetorch folder
+```
+
+```bash
+nano ~/.bashrc
+```
+
+```bash
+export PATH=$PATH:/home/username/.local/share/noisetorch/bin
+# save and exit
+```
+
+```bash
+source ~/.bashrc
+echo $PATH
+source ~/.bashrc
+```
+
+now you can run noisetorch from anywhere
+
+```bash
+noisetorch
+```
+
+**34. Create multile sshkey for multiple github**
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "secondaccount@example.com" -f ~/.ssh/id_rsa_second_account
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa_second_account
+cat ~/.ssh/id_rsa_second_account.pub
+```
+
+add this key to github account
+
+```bash
+cd ~/.ssh
+nano config
+```
+
+add this configuration
+
+```bash
+# Default (Main GitHub account)
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa
+
+# Second GitHub account
+Host github-second
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_second_account
+```
+
+check configuration
+
+```bash
+cat ~/.ssh/config
+```
+
+lastly
+
+```bash
+# Start the SSH agent
+eval "$(ssh-agent -s)"
+
+# Add your main key
+ssh-add ~/.ssh/id_rsa
+
+# Add your second key
+ssh-add ~/.ssh/id_rsa_second_account
+```
