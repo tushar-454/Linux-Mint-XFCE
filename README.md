@@ -708,7 +708,7 @@ lastly
 # Start the SSH agent
 eval "$(ssh-agent -s)"
 
-# Add your main key
+# Add your main key here rsa replace with your .pub file name
 ssh-add ~/.ssh/id_rsa
 
 # Add your second key
