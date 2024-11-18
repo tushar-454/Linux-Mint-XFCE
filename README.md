@@ -491,3 +491,118 @@ df -h # check storage
 ```bash
 df -h /dev/sd* # check storage of specific drive
 ```
+
+**30. Install clipman for clipboard history**
+
+```bash
+sudo apt install xfce4-clipman
+xfce4-clipman
+```
+
+- After launching, you should see the clipboard icon in your system tray (panel).
+- Right-click the icon to configure options or view history.
+- Open the Clipman settings by right-clicking the icon in the system tray and selecting Properties.
+- Enable "Keep clipboard history".
+- Adjust the number of items you want to keep in the history.
+
+You can bind a keyboard shortcut to quickly access clipboard history:
+
+- Go to Settings > Keyboard > Application Shortcuts.
+- Add a new shortcut:
+  - Command: xfce4-popup-clipman
+  - Shortcut: Assign a key combination (e.g., Ctrl + Shift + V or any preferred combination).
+
+_For startup applications, you can add Clipman to automatically start with your system:_
+
+```bash
+xfce4-session-settings
+```
+
+- Go to the Application Autostart Tab
+- Click on the "Application Autostart" tab.
+  Add Clipman to Autostart
+  - Click the "Add" button. Fill in the fields as follows:
+    - Name: Clipman
+    - Command: xfce4-clipman
+    - Description: Clipboard Manager
+    - Click OK.
+  - Verify the Entry
+    - Ensure the Clipman entry is checked (enabled) in the list.
+  - Test the Configuration
+    - Restart your PC to confirm Clipman starts automatically. After logging in, you should see the Clipman icon in your system tray.
+
+**31. Droidcam setup**
+
+Droidcam installation [official step](https://www.dev47apps.com/droidcam/linux/)
+
+```bash
+wget -O droidcam_latest.zip https://files.dev47apps.net/linux/droidcam_2.1.3.zip
+unzip droidcam_latest.zip -d droidcam
+cd droidcam && sudo ./install-client
+```
+
+for fixing video loopback issue
+
+```bash
+sudo apt update
+sudo apt install v4l2loopback-dkms
+sudo modprobe v4l2loopback
+ls /dev/video*
+```
+
+_You should see devices like /dev/video0 or /dev/video1._
+
+Ensure the video group has access. If not, add your user to the video group:
+
+```bash
+sudo usermod -aG video $USER
+```
+
+remove and reload the v4l2loopback module:
+
+```bash
+sudo modprobe -r v4l2loopback
+sudo modprobe v4l2loopback devices=1 exclusive_caps=1
+ls /dev/video*
+```
+
+```bash
+sudo usermod -aG video $USER
+```
+
+restart system then open droidcam in mobile and pc then connect. The ensure you have proper permission on browser level.
+
+**_For usb connection install adb_**
+
+```bash
+sudo apt update
+sudo apt install adb -y
+adb version
+```
+
+for allow in phone run this command, you must enable developer option in phone and usb debugging
+
+```bash
+adb devices
+```
+
+**32. Install OBS**
+
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install obs-studio
+```
+
+_For HD Recording_
+
+```bash
+sudo apt install ffmpeg
+```
+
+_For NVIDIA GPU accelaeration If you have GPU_
+
+```bash
+sudo apt install vainfo i965-va-driver
+sudo apt install nvidia-driver-<version>
+sudo apt install libnvenc
+```
