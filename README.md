@@ -714,3 +714,33 @@ ssh-add ~/.ssh/id_rsa
 # Add your second key
 ssh-add ~/.ssh/id_rsa_second_account
 ```
+
+**34 Bangla font setup**
+
+Donwload font from [IOS Kohinoor](https://trickbd.com/android-tips/884484)
+
+```bash
+sudo mv your-font.ttf /usr/share/fonts/truetype/
+sudo fc-cache -fv
+mkdir -p ~/.fonts
+mv your-font.ttf ~/.fonts/
+fc-cache -fv
+sudo nano /etc/fonts/local.conf
+```
+
+_add thease line in config file_
+
+```bash
+<match target="font">
+    <test name="family" compare="contains">
+        <string>bn</string>
+    </test>
+    <edit name="family" mode="prepend">
+        <string>YourCustomBengaliFont</string>
+    </edit>
+</match>
+```
+
+```bash
+fc-cache -fv
+```
