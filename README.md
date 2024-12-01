@@ -744,3 +744,91 @@ _add thease line in config file_
 ```bash
 fc-cache -fv
 ```
+
+_For other applications you need to manual setup on that applications_
+
+**35. Setup PHP, MySQL, Apache, PHPMYADMIN**
+
+```bash
+sudo apt update && sudo apt upgrade
+sudo apt install apache2 php libapache2-mod-php php-mysql mysql-server
+sudo systemctl status apache2
+sudo systemctl start apache2
+echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/phpinfo.php
+```
+
+After that visit the link for test: [http://localhost/phpinfo.php
+](http://localhost/phpinfo.php)
+
+If you see the PHP info page, your setup works.
+
+_PHP project setup_
+
+Clone your project or you have in local pc. copy all folders and files and move it /var/www/html/
+
+```bash
+sudo cp -r /path/to/your/code /var/www/html/
+```
+
+give correct permission
+
+```bash
+sudo chown -R www-data:www-data /var/www/html/your-project-folder
+sudo chmod -R 755 /var/www/html/your-project-folder
+```
+
+inside your project folder if you have index.php file then ok just visit [http://localhost/your-project-folder/](http://localhost/your-project-folder/), if you have any different just visit [http://localhost/your-project-folder/<filename>.php](http://localhost/your-project-folder/<filename>.php)
+
+_Enable Required Apache Modules_
+
+If your project requires URL rewriting or other features, enable necessary modules:
+
+```bash
+sudo a2enmod rewrite
+sudo systemctl restart apache2
+```
+
+**_Configure Apache_**
+
+```bash
+sudo nano /etc/apache2/sites-available/easydokan.conf
+```
+
+```txt
+<VirtualHost *:80>
+    ServerName easydokan.local
+    DocumentRoot /var/www/html/easydokan-api
+
+    <Directory /var/www/html/easydokan-api>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+```
+
+Enable the site:
+
+```bash
+sudo a2ensite easydokan.conf
+```
+
+Add easydokan.local to your /etc/hosts file:
+
+Add `easydokan.local` to your `/etc/hosts` file:
+
+```bash
+sudo nano /etc/hosts
+```
+
+Add the line:
+
+```bash
+127.0.0.1 easydokan.local
+```
+
+Restart Apache:
+
+```bash
+sudo systemctl restart apache2
+```
